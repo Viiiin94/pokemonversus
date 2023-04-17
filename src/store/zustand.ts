@@ -1,12 +1,24 @@
-import {create} from "zustand"
-import { IPokemon, IPokemonSpec } from "../types/pokemonType"
+import { create } from "zustand";
+import { IPokemon, IPokemonSpec } from "../types/pokemonType";
 
-type State = {
-    pokemons: IPokemon[]
-    setPokemon: (pokemons: IPokemon[]) => void
-}
+type PokeState = {
+  pokemons: IPokemon[];
+  setPokemon: (pokemons: IPokemon[]) => void;
+};
 
-const usePokemonStore = create<State>((set) => {
-    pokemons: [],
-    setPokemon: (pokemons) => set({pokemons})
-}) 
+type PokeSpecState = {
+  pokeSpecs: IPokemonSpec[];
+  setPokeSpec: (pokeSpecs: IPokemonSpec[]) => void;
+};
+
+const usePokemonStore = create<PokeState>((set) => ({
+  pokemons: [],
+  setPokemon: (pokemons) => set({ pokemons }),
+}));
+
+const usePokeSpecStore = create<PokeSpecState>((set) => ({
+  pokeSpecs: [],
+  setPokeSpec: (pokeSpecs) => set({ pokeSpecs }),
+}));
+
+export { usePokemonStore, usePokeSpecStore };
