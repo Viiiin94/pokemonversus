@@ -11,6 +11,7 @@ const initailValue = {
   types: [],
 };
 
+// 포켓몬 디테일
 type PokeState1 = {
   pokemons1: IPokemonDetail;
   setPokeSpec: (pokemons1: IPokemonDetail) => void;
@@ -30,5 +31,7 @@ const usePokeStore2 = create<PokeState2>((set) => ({
   pokemons2: initailValue,
   setPokeSpec: (pokemons2) => set({ pokemons2 }),
 }));
+
+// 인풋밸류
 
 export { usePokeStore1, usePokeStore2 };
