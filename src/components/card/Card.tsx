@@ -1,5 +1,4 @@
 import React from "react";
-import { IPokemon } from "../../types/pokemonType";
 
 const Card = () => {
   return (
@@ -11,9 +10,7 @@ const Card = () => {
           src=""
         />
       </div>
-      <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">
-        Buy YouTube Videos
-      </h2>
+      <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-3"></h2>
       <p className="leading-relaxed text-base">
         Williamsburg occupy sustainable snackwave gochujang. Pinterest cornhole
         brunch, slow-carb neutra irony.
