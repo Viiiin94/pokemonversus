@@ -11,19 +11,24 @@ const initailValue = {
   types: [],
 };
 
-type PokeState = {
-  pokemons: IPokemonDetail;
-  setPokeSpec: (pokemons: IPokemonDetail) => void;
+type PokeState1 = {
+  pokemons1: IPokemonDetail;
+  setPokeSpec: (pokemons1: IPokemonDetail) => void;
 };
 
-const usePokeStore1 = create<PokeState>((set) => ({
-  pokemons: initailValue,
-  setPokeSpec: (pokemons) => set({ pokemons }),
+type PokeState2 = {
+  pokemons2: IPokemonDetail;
+  setPokeSpec: (pokemons2: IPokemonDetail) => void;
+};
+
+const usePokeStore1 = create<PokeState1>((set) => ({
+  pokemons1: initailValue,
+  setPokeSpec: (pokemons1) => set({ pokemons1 }),
 }));
 
-const usePokeStore2 = create<PokeState>((set) => ({
-  pokemons: initailValue,
-  setPokeSpec: (pokemons) => set({ pokemons }),
+const usePokeStore2 = create<PokeState2>((set) => ({
+  pokemons2: initailValue,
+  setPokeSpec: (pokemons2) => set({ pokemons2 }),
 }));
 
 export { usePokeStore1, usePokeStore2 };

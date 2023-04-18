@@ -12,7 +12,7 @@ const Input = () => {
         htmlFor="first_name"
         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
       >
-        First name
+        포켓몬 이름작성
       </label>
       <input
         type="text"

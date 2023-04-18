@@ -8,11 +8,11 @@ interface CardProps {
 
 const Card = ({ pokemon }: CardProps) => {
   return (
-    <div className="sm:w-1/2 mb-10 px-4">
+    <article className="sm:w-1/2 mb-10 px-4">
       <div className="rounded-lg h-64 overflow-hidden">
         <img
-          alt="content"
-          className="object-cover object-center h-full w-full"
+          alt="포켓몬스터이미지"
+          className="object-fill object-center h-full w-full"
           src={pokemon?.image}
         />
       </div>
@@ -29,7 +29,7 @@ const Card = ({ pokemon }: CardProps) => {
           Button
         </button>
       </form>
-    </div>
+    </article>
   );
 };
 
