@@ -33,5 +33,14 @@ const usePokeStore2 = create<PokeState2>((set) => ({
 }));
 
 // 인풋밸류
+type InputState = {
+  value: number;
+  setValue: (value: number) => void;
+};
 
-export { usePokeStore1, usePokeStore2 };
+const useInputStore = create<InputState>((set) => ({
+  value: 1,
+  setValue: (value) => set({ value }),
+}));
+
+export { usePokeStore1, usePokeStore2, useInputStore };

@@ -2,16 +2,20 @@ import React, { Suspense } from "react";
 import Card from "../components/card/Card";
 import { pokemonSpecAPI } from "../apis/api";
 import { useQuery } from "react-query";
-import { usePokeStore1, usePokeStore2 } from "../store/zustand";
+import { useInputStore, usePokeStore1, usePokeStore2 } from "../store/zustand";
 
 import Skeleton from "../components/skeleton/Skeleton";
 
 const Main = () => {
-  const { data: pokemons1 } = useQuery("pokemonSpec1", () => pokemonSpecAPI(3));
+  const { value } = useInputStore();
+  const { data: pokemons1 } = useQuery(
+    ["pokemonSpec1", value],
+    () => pokemonSpecAPI(value),
+    {
+      enabled: !!value,
+    }
+  );
   const { data: pokemons2 } = useQuery("pokemonSpec2", () => pokemonSpecAPI(8));
-
-  usePokeStore1.setState({ pokemons1 });
-  usePokeStore2.setState({ pokemons2 });
 
   return (
     <section className="text-gray-600 body-font">
