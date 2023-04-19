@@ -5,34 +5,34 @@ import Button from "../common/button/Button";
 import {
   useInputStore,
   usePokeStore1,
-  usePokeStore2,
+  useAllPokeStore,
 } from "../../store/zustand";
 const Image = lazy(() => import("../common/image/Image"));
 interface CardProps {
   pokemon?: IPokemonDetail;
 }
 
+// 한번에 모든 포켓몬을 불러오고 각각의 상태를 관리하는게 편해보임
+
 const Card = ({ pokemon }: CardProps) => {
-  const { pokemons1 } = usePokeStore1();
-  const { pokemons2 } = usePokeStore2();
+  const { pokemons } = usePokeStore1();
+
   const { value, setValue } = useInputStore();
 
-  const firstId = pokemons1?.id;
-  const firstKoreanName = pokemons1?.koreanName;
+  const { allPokes } = useAllPokeStore();
 
-  const secId = pokemons2?.id;
-  const secKoreanName = pokemons2?.koreanName;
+  console.log(allPokes.results.map((item) => item));
+
+  const firstId = pokemons?.id;
+  const firstKoreanName = pokemons?.koreanName;
 
   const onChange = (
     event: ChangeEvent<HTMLInputElement & { value: string }>
   ) => {
     const { target } = event;
-    if (pokemons1 && target.value === firstKoreanName) {
+    if (pokemons && target.value === firstKoreanName) {
       setValue(firstId);
-      console.log(value);
-      usePokeStore1.setState({ pokemons1 });
-    } else if (pokemons2 && target.value === secKoreanName) {
-      setValue(secId);
+      usePokeStore1.setState({ pokemons });
     }
   };
 

@@ -11,25 +11,42 @@ const initailValue = {
   types: [],
 };
 
-// 포켓몬 디테일
-type PokeState1 = {
-  pokemons1: IPokemonDetail;
-  setPokeSpec: (pokemons1: IPokemonDetail) => void;
+type AllPokeState = {
+  allPokes: {
+    count: number;
+    results: {
+      name: string;
+    }[];
+  };
+  setAllPokes: (allPokes: {
+    count: number;
+    results: {
+      name: string;
+    }[];
+  }) => void;
 };
 
-type PokeState2 = {
-  pokemons2: IPokemonDetail;
-  setPokeSpec: (pokemons2: IPokemonDetail) => void;
-};
-
-const usePokeStore1 = create<PokeState1>((set) => ({
-  pokemons1: initailValue,
-  setPokeSpec: (pokemons1) => set({ pokemons1 }),
+const useAllPokeStore = create<AllPokeState>((set) => ({
+  allPokes: {
+    count: 0,
+    results: [
+      {
+        name: "",
+      },
+    ],
+  },
+  setAllPokes: (allPokes) => set({ allPokes }),
 }));
 
-const usePokeStore2 = create<PokeState2>((set) => ({
-  pokemons2: initailValue,
-  setPokeSpec: (pokemons2) => set({ pokemons2 }),
+// 포켓몬 디테일
+type PokeState = {
+  pokemons: IPokemonDetail;
+  setPokeSpec: (pokemons: IPokemonDetail) => void;
+};
+
+const usePokeStore1 = create<PokeState>((set) => ({
+  pokemons: initailValue,
+  setPokeSpec: (pokemons) => set({ pokemons }),
 }));
 
 // 인풋밸류
@@ -39,8 +56,8 @@ type InputState = {
 };
 
 const useInputStore = create<InputState>((set) => ({
-  value: 1,
+  value: 0,
   setValue: (value) => set({ value }),
 }));
 
-export { usePokeStore1, usePokeStore2, useInputStore };
+export { usePokeStore1, useInputStore, useAllPokeStore };

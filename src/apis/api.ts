@@ -3,10 +3,17 @@ import { IPokemon, IPokemonSpec, IPokemonDetail } from "../types/pokemonType";
 
 const create = axios.create();
 
+interface IAllPokes {
+  count: number;
+  results: {
+    name: string;
+  }[];
+}
+
 export const pokemonAPI = async () => {
   const requestURL = `https://pokeapi.co/api/v2/pokemon/`;
 
-  const { data } = await create.get<IPokemon>(requestURL);
+  const { data } = await create.get<IAllPokes>(requestURL);
 
   return data;
 };
