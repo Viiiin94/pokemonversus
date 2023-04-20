@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from "react";
-import { usePokeStore1, useInputStore } from "../../../store/zustand";
+import {} from "../../../store/zustand";
 
 interface IInput {
   type: string;

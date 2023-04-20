@@ -1,37 +1,27 @@
 import React, { Suspense } from "react";
 import Card from "../components/card/Card";
-import { pokemonSpecAPI } from "../apis/api";
-import { useQuery } from "react-query";
-import {
-  useInputStore,
-  usePokeStore1,
-  useAllPokeStore,
-} from "../store/zustand";
-
-import Skeleton from "../components/skeleton/Skeleton";
 import { pokemonAPI } from "../apis/api";
+import { useQuery } from "react-query";
+import Skeleton from "../components/skeleton/Skeleton";
+import { allPokemonStore } from "../store/zustand";
 
 const Main = () => {
-  const { value } = useInputStore();
+  const { data: allPokemon } = useQuery("pokemons", pokemonAPI);
 
-  const { data: allPokes } = useQuery("allPoke", pokemonAPI);
-  useAllPokeStore.setState({ allPokes });
-
-  const { data: pokemons1 } = useQuery(
-    ["pokemonSpec1", value],
-    () => pokemonSpecAPI(value),
-    {
-      enabled: !!value,
-    }
-  );
+  const { setAllPokemon } = allPokemonStore();
+  if (allPokemon) {
+    setAllPokemon({ allPokemon });
+  }
 
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -mx-4 -mb-10 text-center">
-          <Suspense fallback={<Skeleton />}>
-            <Card pokemon={pokemons1} />
-          </Suspense>
+          {
+            <Suspense fallback={<Skeleton />}>
+              <Card pokemon={allPokemon} />
+            </Suspense>
+          }
         </div>
       </div>
     </section>

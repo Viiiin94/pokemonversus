@@ -1,24 +1,26 @@
 import axios from "axios";
-import { IPokemon, IPokemonSpec, IPokemonDetail } from "../types/pokemonType";
+import {
+  IPokemon,
+  IPokemonSpec,
+  IAllPokes,
+  IPokemonDetail,
+} from "../types/pokemonType";
 
 const create = axios.create();
-
-interface IAllPokes {
-  count: number;
-  results: {
-    name: string;
-  }[];
-}
 
 export const pokemonAPI = async () => {
   const requestURL = `https://pokeapi.co/api/v2/pokemon/`;
 
   const { data } = await create.get<IAllPokes>(requestURL);
 
-  return data;
+  return {
+    count: data.count,
+    next: data.next,
+    results: data.results.map((item) => item),
+  };
 };
 
-export const pokemonSpecAPI = async (id: number): Promise<IPokemonDetail> => {
+export const pokemonDetailAPI = async (id: number): Promise<IPokemonDetail> => {
   const requestURL = `https://pokeapi.co/api/v2/pokemon/${id}`;
   const requestSpceURL = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
 

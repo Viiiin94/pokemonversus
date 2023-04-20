@@ -42,6 +42,15 @@ export interface IPokemonSpec {
   }[];
 }
 
+export interface IAllPokes {
+  count: number;
+  next: string;
+  results: {
+    name: string;
+  }[];
+}
+[];
+
 export interface IPokemonDetail {
   id: number;
   name: string;

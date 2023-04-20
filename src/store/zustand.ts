@@ -1,63 +1,43 @@
 import { create } from "zustand";
-import { IPokemonDetail } from "../types/pokemonType";
+import { IAllPokes, IPokemon, IPokemonDetail } from "../types/pokemonType";
 
-const initailValue = {
-  id: 0,
-  name: "",
-  koreanName: "",
-  color: "",
-  image: "",
-  flavor_text_entry: "",
-  types: [],
+// 모든 포켓몬
+type AllPokemonState = {
+  allPokemon: IAllPokes;
+  setAllPokemon: (allPokemon: IAllPokes) => void;
 };
 
-type AllPokeState = {
-  allPokes: {
-    count: number;
-    results: {
-      name: string;
-    }[];
-  };
-  setAllPokes: (allPokes: {
-    count: number;
-    results: {
-      name: string;
-    }[];
-  }) => void;
-};
-
-const useAllPokeStore = create<AllPokeState>((set) => ({
-  allPokes: {
+export const allPokemonStore = create<AllPokemonState>((set) => ({
+  allPokemon: {
     count: 0,
+    next: "",
     results: [
       {
         name: "",
       },
     ],
   },
-  setAllPokes: (allPokes) => set({ allPokes }),
+  setAllPokemon: (allPokemon) => set({ allPokemon }),
 }));
 
-// 포켓몬 디테일
-type PokeState = {
-  pokemons: IPokemonDetail;
-  setPokeSpec: (pokemons: IPokemonDetail) => void;
+// 포켓몬 기본 정보
+type PokemonState = {
+  pokemons: IPokemon[];
+  setPokemons: (pokemons: IPokemon[]) => void;
 };
 
-const usePokeStore1 = create<PokeState>((set) => ({
-  pokemons: initailValue,
-  setPokeSpec: (pokemons) => set({ pokemons }),
+export const pokemonStore = create<PokemonState>((set) => ({
+  pokemons: [],
+  setPokemons: (pokemons) => set({ pokemons }),
 }));
 
-// 인풋밸류
-type InputState = {
-  value: number;
-  setValue: (value: number) => void;
+// 포켓몬 기본 + 스펙 정보 합산
+type PokemonDetailState = {
+  pokemonDetail: IPokemonDetail[];
+  setPokemonDetail: (pokemonDetail: IPokemonDetail[]) => void;
 };
 
-const useInputStore = create<InputState>((set) => ({
-  value: 0,
-  setValue: (value) => set({ value }),
+export const pokemonDetailStore = create<PokemonDetailState>((set) => ({
+  pokemonDetail: [],
+  setPokemonDetail: (pokemonDetail) => set({ pokemonDetail }),
 }));
-
-export { usePokeStore1, useInputStore, useAllPokeStore };
