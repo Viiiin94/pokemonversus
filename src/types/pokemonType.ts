@@ -20,7 +20,6 @@ export interface IPokemon {
     };
   };
 }
-[];
 export interface IPokemonSpec {
   id: number; // 넘버
   color: {
@@ -49,7 +48,6 @@ export interface IAllPokes {
     name: string;
   }[];
 }
-[];
 
 export interface IPokemonDetail {
   id: number;
