@@ -20,9 +20,11 @@ export const pokemonAPI = async () => {
   };
 };
 
-export const pokemonDetailAPI = async (id: number): Promise<IPokemonDetail> => {
-  const requestURL = `https://pokeapi.co/api/v2/pokemon/${id}`;
-  const requestSpceURL = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
+export const pokemonDetailAPI = async (
+  name: string
+): Promise<IPokemonDetail> => {
+  const requestURL = `https://pokeapi.co/api/v2/pokemon/${name}`;
+  const requestSpceURL = `https://pokeapi.co/api/v2/pokemon-species/${name}`;
 
   const { data: pokemons } = await create.get<IPokemon>(requestURL);
   const { data: specs } = await create.get<IPokemonSpec>(requestSpceURL);

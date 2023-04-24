@@ -1,11 +1,4 @@
-import {
-  ChangeEvent,
-  FormEvent,
-  lazy,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import { ChangeEvent, FormEvent, lazy, useState } from "react";
 import Input from "../common/input/Input";
 import Button from "../common/button/Button";
 import { useQuery } from "react-query";
@@ -14,24 +7,11 @@ const Image = lazy(() => import("../common/image/Image"));
 
 const Card = () => {
   const [value, setValue] = useState<string>("");
+  const [pokeName, setPokeName] = useState<string>("pikachu");
 
-  let number: number = Math.floor(Math.random() * 1000) + 1;
-
-  const { data, isLoading } = useQuery(["pokemonDetail"], () =>
-    pokemonDetailAPI(number)
+  const { data } = useQuery(["pokemonDetail", pokeName], () =>
+    pokemonDetailAPI(pokeName)
   );
-
-  const isMatching = useCallback(() => {
-    value === data?.koreanName ? (number = data.id) : true;
-  }, [value]);
-
-  useEffect(() => {
-    isMatching();
-  }, []);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
@@ -42,7 +22,7 @@ const Card = () => {
   };
 
   return (
-    <article className="sm:w-1/2 mb-10 px-4">
+    <section className="sm:w-1/2 mb-10 px-4">
       <Image props={data?.image} />
       <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">
         {data?.koreanName}
@@ -59,7 +39,7 @@ const Card = () => {
         <Input type="text" onChange={onChange} value={value} />
         <Button />
       </form>
-    </article>
+    </section>
   );
 };
 
