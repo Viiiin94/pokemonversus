@@ -8,7 +8,7 @@ import {
 
 const create = axios.create();
 
-export const pokemonAPI = async () => {
+export const pokemonAPI = async (): Promise<IAllPokes> => {
   const requestURL = `https://pokeapi.co/api/v2/pokemon/`;
 
   const { data } = await create.get<IAllPokes>(requestURL);

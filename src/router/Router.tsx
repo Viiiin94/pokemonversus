@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import Main from "../pages/Main";
+import CardList from "../pages/CardList";
 
 const Router = () => {
   return (
@@ -9,6 +10,7 @@ const Router = () => {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Main />} />
+          <Route path="/pokemonlist" element={<CardList />} />
         </Route>
       </Routes>
     </BrowserRouter>
