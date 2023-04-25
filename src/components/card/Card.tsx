@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { pokemonDetailAPI } from "../../apis/api";
 import { pokemonDetailState } from "../../store/recoilStore";
 import { useRecoilState } from "recoil";
+import { IPokemonDetail } from "../../types/pokemonType";
 
 const Image = lazy(() => import("../common/image/Image"));
 
@@ -12,13 +13,19 @@ interface CardProps {
 
 const Card = (props: CardProps) => {
   const [pokemon, setPokemon] = useRecoilState(pokemonDetailState);
-  const { isLoading } = useQuery(
-    "pokemonDetail",
-    () => pokemonDetailAPI(props.name),
-    { onSuccess: (data) => setPokemon(data) }
-  );
 
-  if (isLoading) {
+  useQuery(["pokemonDetail", props.name], () => pokemonDetailAPI(props.name), {
+    onSuccess: (data) => {
+      setPokemon((prevPokemon) => ({
+        ...prevPokemon,
+        [props.name]: data,
+      }));
+    },
+  });
+
+  const pokemonData: IPokemonDetail = pokemon[props.name];
+
+  if (!pokemonData) {
     return (
       <div className="sm:w-1/2 mb-10 px-4">
         <div className="rounded-lg h-64 overflow-hidden">
@@ -42,14 +49,20 @@ const Card = (props: CardProps) => {
         <img
           alt="content"
           className="object-fill object-center h-full w-full"
-          src={pokemon?.image}
+          src={pokemonData.image}
         />
       </div>
       <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">
-        {pokemon?.name}
+        {pokemonData.koreanName}
       </h2>
-      <p className="leading-relaxed text-base">{pokemon?.types}</p>
-      <p className="leading-relaxed text-base">{pokemon?.flavor_text_entry}</p>
+      <p className="leading-relaxed text-base">
+        {pokemonData.types.map((type) => (
+          <>{type} </>
+        ))}
+      </p>
+      <p className="leading-relaxed text-base">
+        {pokemonData.flavor_text_entry}
+      </p>
       <button className="flex mx-auto mt-6 text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded">
         Button
       </button>

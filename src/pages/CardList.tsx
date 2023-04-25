@@ -8,6 +8,7 @@ import { useRecoilState } from "recoil";
 
 const CardList = () => {
   const [pokemons, setPokemons] = useRecoilState(pokemonState);
+
   const { isLoading } = useQuery("pokemons", () => pokemonAPI(""), {
     onSuccess: (data) => setPokemons(data),
   });

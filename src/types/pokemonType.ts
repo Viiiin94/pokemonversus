@@ -58,3 +58,4 @@ export interface IPokemonDetail {
   flavor_text_entry: string;
   types: string[];
 }
+[];
