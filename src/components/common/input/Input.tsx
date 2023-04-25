@@ -1,5 +1,4 @@
 import React, { ChangeEvent } from "react";
-import {} from "../../../store/zustand";
 
 interface IInput {
   type: string;

@@ -1,24 +1,41 @@
-import { lazy } from "react";
+import React, { lazy } from "react";
 import { useQuery } from "react-query";
 import { pokemonDetailAPI } from "../../apis/api";
-import { pokemonDetailStore } from "../../store/zustand";
+import { pokemonDetailState } from "../../store/recoilStore";
+import { useRecoilState } from "recoil";
 
 const Image = lazy(() => import("../common/image/Image"));
 
 interface CardProps {
-  pokeName: string;
+  name: string;
 }
 
-const Card = (pokeName: CardProps) => {
-  const pokemonRealName = pokeName.pokeName;
-  const { data: pokemon } = useQuery("pokemon", () =>
-    pokemonDetailAPI(pokemonRealName)
+const Card = (props: CardProps) => {
+  const [pokemon, setPokemon] = useRecoilState(pokemonDetailState);
+  const { isLoading } = useQuery(
+    "pokemonDetail",
+    () => pokemonDetailAPI(props.name),
+    { onSuccess: (data) => setPokemon(data) }
   );
 
-  const { setPokemonDetail } = pokemonDetailStore();
-
-  setPokemonDetail({ pokemon });
-
+  if (isLoading) {
+    return (
+      <div className="sm:w-1/2 mb-10 px-4">
+        <div className="rounded-lg h-64 overflow-hidden">
+          <img
+            alt="content"
+            className="object-fill object-center h-full w-full"
+            src=""
+          />
+        </div>
+        <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">
+          포켓몬 이름
+        </h2>
+        <p className="leading-relaxed text-base">포켓몬 타입</p>
+        <p className="leading-relaxed text-base">포켓몬 특징</p>
+      </div>
+    );
+  }
   return (
     <div className="sm:w-1/2 mb-10 px-4">
       <div className="rounded-lg h-64 overflow-hidden">
@@ -40,4 +57,4 @@ const Card = (pokeName: CardProps) => {
   );
 };
 
-export default Card;
+export default React.memo(Card);
