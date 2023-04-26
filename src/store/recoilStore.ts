@@ -1,4 +1,4 @@
-import { atom, selector } from "recoil";
+import { atom } from "recoil";
 import { IAllPokes, IPokemonDetail } from "../types/pokemonType";
 
 export const pokemonState = atom<IAllPokes>({
