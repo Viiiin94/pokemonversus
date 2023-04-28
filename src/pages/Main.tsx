@@ -1,19 +1,16 @@
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { pokemonState } from "../store/recoilStore";
 import { useQuery } from "react-query";
 import { pokemonAPI } from "../apis/api";
 
 const Main = () => {
-  const [pokemons, setPokemons] = useRecoilState(pokemonState);
+  const setPokemons = useSetRecoilState(pokemonState);
 
   useQuery(["pokemons"], () => pokemonAPI(""), {
     onSuccess: (data) => {
       setPokemons(data);
     },
   });
-
-  console.log(pokemons);
-
   return (
     <div>
       <p>Hi</p>
