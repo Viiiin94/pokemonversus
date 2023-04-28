@@ -29,7 +29,7 @@ const CardList = () => {
         ...prev,
         results: [
           ...prev.results,
-          ...data.pages.flatMap((page) => page.results),
+          ...data.pages[data.pages.length - 1].results,
         ],
         next: data.pages[data.pages.length - 1].next,
       }));
