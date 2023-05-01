@@ -57,5 +57,6 @@ export interface IPokemonDetail {
   image: string;
   flavor_text_entry: string;
   types: string[];
+  [key: string]: any;
 }
 [];
