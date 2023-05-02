@@ -36,11 +36,11 @@ const Card = (props: CardProps) => {
     return <Skeleton />;
   }
   return (
-    <div className="sm:w-1/2 mb-10 px-4">
+    <div className="sm:w-1/2 mb-10 px-4 dark:border-b-2 dark:border-b-slate-600">
       <div className="rounded-lg h-64 overflow-hidden">
         <Image props={pokemonData.image} />
       </div>
-      <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">
+      <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-3 dark:text-slate-100">
         {pokemonData.id}. {pokemonData.koreanName}
       </h2>
       <p className="leading-relaxed text-base">

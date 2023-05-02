@@ -1,7 +1,7 @@
 import { Suspense, useEffect } from "react";
 import Card from "../components/card/Card";
 import Skeleton from "../components/skeleton/Skeleton";
-import { useInfiniteQuery } from "react-query";
+import { useInfiniteQuery, useQuery } from "react-query";
 import { pokemonAPI } from "../apis/api";
 import { pokemonState } from "../store/pokemonStore";
 import { useRecoilState } from "recoil";
@@ -18,9 +18,6 @@ const CardList = () => {
       getNextPageParam: (lastPage, pages) => {
         lastPage.next = pages[pages.length - 1].next;
         return lastPage.next;
-      },
-      onSuccess: () => {
-        console.log("성공");
       },
     }
   );
@@ -46,31 +43,27 @@ const CardList = () => {
   };
 
   return (
-    <section className="text-gray-600 body-font">
-      {data?.pages[0].results !== undefined && (
-        <InfiniteScroll
-          dataLength={pokemons?.results.length}
-          next={fetchNextPage}
-          hasMore={hasNextPage ?? false}
-          loader={<div>Loading ...</div>}
-        >
-          <div className="container px-5 py-24 mx-auto">
-            <div className="flex flex-wrap -mx-4 -mb-10 text-center">
-              {pokemons &&
-                pokemons?.results.map((item, idx: number) => {
-                  return (
-                    <Suspense
-                      fallback={<Skeleton />}
-                      key={`${item.name}_${idx}`}
-                    >
-                      <Card name={item.name} />
-                    </Suspense>
-                  );
-                })}
-            </div>
+    <section className="text-gray-600 body-font dark:text-slate-100 dark:bg-gray-700">
+      <InfiniteScroll
+        dataLength={pokemons?.results.length}
+        next={fetchNextPage}
+        hasMore={hasNextPage ?? false}
+        loader={<div>Loading ...</div>}
+      >
+        <div className="container px-5 py-24 mx-auto">
+          <div className="flex flex-wrap -mx-4 -mb-10 text-center">
+            {pokemons &&
+              pokemons?.results.map((item, idx: number) => {
+                return (
+                  <Suspense fallback={<Skeleton />} key={`${item.name}_${idx}`}>
+                    <Card name={item.name} />
+                  </Suspense>
+                );
+              })}
           </div>
-        </InfiniteScroll>
-      )}
+        </div>
+      </InfiniteScroll>
+
       <TopScrollButton onClick={onTopScroll} />
     </section>
   );

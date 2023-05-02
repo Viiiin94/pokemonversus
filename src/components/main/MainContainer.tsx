@@ -2,7 +2,7 @@ import MainImage from "../../assets/pokemon_1200_500.webp";
 
 const MainContainer = () => {
   return (
-    <section className="text-gray-600 body-font">
+    <section className="text-gray-600 body-font dark:text-gray-300 dark:bg-gray-700">
       <div className="container px-5 py-24 mx-auto flex flex-col">
         <div className="lg:w-4/6 mx-auto">
           <div className="rounded-lg h-64 overflow-hidden">
@@ -29,7 +29,7 @@ const MainContainer = () => {
                 </svg>
               </div>
               <div className="flex flex-col items-center text-center justify-center">
-                <h2 className="font-medium title-font mt-4 text-gray-900 text-lg">
+                <h2 className="font-medium title-font mt-4 text-gray-900 text-lg dark:text-slate-300">
                   Yoo Youngbin
                 </h2>
                 <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>

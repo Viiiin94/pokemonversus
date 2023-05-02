@@ -2,15 +2,15 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="text-gray-600 body-font">
+    <footer className="text-gray-600 body-font dark:text-gray-300 dark:bg-gray-800">
       <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
         <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-          <span className="ml-3 text-xl">Pokemon</span>
+          <span className="ml-3 text-xl dark:text-gray-300">Pokemon</span>
         </a>
         <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
           © 2023 pokemon Versus —
           <a
-            href="https://twitter.com/knyttneve"
+            href="https://github.com/BTSBRINGMEHERE"
             className="text-gray-600 ml-1"
             rel="noopener noreferrer"
             target="_blank"
@@ -18,8 +18,8 @@ const Footer = () => {
             @mynameisyyb
           </a>
         </p>
-        <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-          <a className="ml-3 text-gray-500">
+        <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start ">
+          <a className="ml-3 text-gray-500 dark:text-gray-300 ">
             <svg
               fill="none"
               stroke="currentColor"
@@ -33,7 +33,7 @@ const Footer = () => {
               <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
             </svg>
           </a>
-          <a className="ml-3 text-gray-500">
+          <a className="ml-3 text-gray-500 dark:text-gray-300">
             <svg
               fill="currentColor"
               stroke="currentColor"
