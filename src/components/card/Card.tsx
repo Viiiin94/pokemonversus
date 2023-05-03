@@ -22,9 +22,12 @@ const Card = (props: CardProps) => {
       if (!!data) {
         setPokemon((prevPokemon) => ({
           ...prevPokemon,
-          [props.name]: data,
+          [props.name]: data ? data : undefined,
         }));
       }
+    },
+    onError: (error) => {
+      console.log(error);
     },
   });
 
