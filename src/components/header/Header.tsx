@@ -27,7 +27,10 @@ const Header = () => {
     <header className="text-gray-600 body-font border-b-2 dark:bg-gray-800 dark:border-b-gray-600">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center dark:text-gray-300">
         <nav className="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
-          <Link to="/pokemonlist" className="mr-5 hover:text-gray-900">
+          <Link
+            to="/pokemonlist"
+            className="mr-5 hover:text-gray-900 dark:hover:text-gray-50"
+          >
             Pokemon List
           </Link>
         </nav>

@@ -1,7 +1,7 @@
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Card from "../components/card/Card";
 import Skeleton from "../components/skeleton/Skeleton";
-import { useInfiniteQuery, useQuery } from "react-query";
+import { useInfiniteQuery } from "react-query";
 import { pokemonAPI } from "../apis/api";
 import { pokemonState } from "../store/pokemonStore";
 import { useRecoilState } from "recoil";
@@ -10,6 +10,7 @@ import TopScrollButton from "../components/common/button/TopScrollButton";
 
 const CardList = () => {
   const [pokemons, setPokemons] = useRecoilState(pokemonState);
+  const [dataLength, setDataLength] = useState(0);
 
   const { data, fetchNextPage, hasNextPage } = useInfiniteQuery(
     ["pokemonInfinite"],
@@ -32,6 +33,9 @@ const CardList = () => {
         ],
         next: data.pages[data.pages.length - 1].next,
       }));
+      setDataLength(
+        (prev) => prev + data.pages[data.pages.length - 1].results.length
+      );
     }
   }, [data]);
 
@@ -49,6 +53,8 @@ const CardList = () => {
         next={fetchNextPage}
         hasMore={hasNextPage ?? false}
         loader={<div>Loading ...</div>}
+        endMessage={<div>You have seen it all</div>}
+        scrollThreshold={0.99}
       >
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -mx-4 -mb-10 text-center">

@@ -5,9 +5,7 @@ import { pokemonDetailState } from "../../store/pokemonStore";
 import { useRecoilState } from "recoil";
 import { IPokemonDetail } from "../../types/pokemonType";
 import Modal from "../common/modal/Modal";
-import { Link } from "react-router-dom";
 import Skeleton from "../skeleton/Skeleton";
-import Button from "../common/button/Button";
 
 const Image = lazy(() => import("../common/image/Image"));
 
@@ -32,7 +30,7 @@ const Card = (props: CardProps) => {
 
   const pokemonData: IPokemonDetail = pokemon[props.name];
 
-  if (!pokemonData) {
+  if (!pokemonData && pokemon) {
     return <Skeleton />;
   }
   return (
