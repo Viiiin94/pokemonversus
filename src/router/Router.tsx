@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import Main from "../pages/Main";
 import CardList from "../pages/CardList";
-import Modal from "../components/common/modal/Modal";
 
 const Router = () => {
   return (

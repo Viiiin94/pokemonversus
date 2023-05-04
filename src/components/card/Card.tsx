@@ -8,6 +8,7 @@ import Skeleton from "../skeleton/Skeleton";
 import KoreanName from "./cardKoreanName/KoreanName";
 import PokeTypes from "./cardPokeTypes/PokeTypes";
 import Sentence from "./cardSentence/Sentence";
+import Modal from "../modal/Modal";
 
 const Image = lazy(() => import("./cardimage/Image"));
 
@@ -35,15 +36,23 @@ const Card = (props: CardProps) => {
 
   const pokemonData: IPokemonDetail = pokemon[props.name];
 
+  const onToggleModal = () => {
+    setOpenModal((prev) => !prev);
+  };
+
   if (!pokemonData && pokemon) {
     return <Skeleton />;
   }
+
   return (
     <div className="sm:w-1/2 mb-10 px-4 dark:border-b-2 dark:border-b-slate-600">
-      <Image props={pokemonData.image} />
+      <button onClick={onToggleModal}>
+        <Image img={pokemonData.image} />
+      </button>
       <KoreanName numb={pokemonData.id} korean={pokemonData.koreanName} />
       <PokeTypes types={pokemonData.types} />
       <Sentence sentence={pokemonData.flavor_text_entry} />
+      {openModal && <Modal props={pokemonData} onToggleModal={onToggleModal} />}
     </div>
   );
 };
