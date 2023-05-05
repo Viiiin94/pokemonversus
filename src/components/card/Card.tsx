@@ -5,12 +5,12 @@ import { pokemonDetailState } from "../../store/pokemonStore";
 import { useRecoilState } from "recoil";
 import { IPokemonDetail } from "../../types/pokemonType";
 import Skeleton from "../skeleton/Skeleton";
-import KoreanName from "./cardKoreanName/KoreanName";
-import PokeTypes from "./cardPokeTypes/PokeTypes";
-import Sentence from "./cardSentence/Sentence";
+import KoreanName from "../common/cardKoreanName/KoreanName";
+import PokeTypes from "../common/cardPokeTypes/PokeTypes";
+import Sentence from "../common/cardSentence/Sentence";
 import Modal from "../modal/Modal";
 
-const Image = lazy(() => import("./cardimage/Image"));
+const Image = lazy(() => import("../common/cardimage/Image"));
 
 interface CardProps {
   name: string;

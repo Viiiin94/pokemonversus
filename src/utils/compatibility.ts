@@ -1,10 +1,3 @@
-type CompatibilityType = {
-  [key in keyof typeof pokemonType]: {
-    goodEffect: Array<keyof typeof pokemonType>;
-    badEffect: Array<keyof typeof pokemonType>;
-    nonEffect: Array<keyof typeof pokemonType>;
-  };
-};
 export const pokemonType: Record<string, string> = {
   normal: "노말",
   fire: "불꽃",
@@ -26,6 +19,13 @@ export const pokemonType: Record<string, string> = {
   fairy: "페어리",
 };
 
+type CompatibilityType = {
+  [key in keyof typeof pokemonType]: {
+    goodEffect: Array<keyof typeof pokemonType>;
+    badEffect: Array<keyof typeof pokemonType>;
+    nonEffect: Array<keyof typeof pokemonType>;
+  };
+};
 export const pokemonCompatibility: CompatibilityType = {
   normal: {
     goodEffect: [],

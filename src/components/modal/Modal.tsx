@@ -1,11 +1,10 @@
-import React, { Fragment, lazy } from "react";
+import { lazy } from "react";
 import { IPokemonDetail } from "../../types/pokemonType";
 import Compatibility from "../compatibility/Compatibility";
-import { pokemonType } from "../../utils/compatibility";
-import PokeTypes from "../card/cardPokeTypes/PokeTypes";
-import KoreanName from "../card/cardKoreanName/KoreanName";
+import PokeTypes from "../common/cardPokeTypes/PokeTypes";
+import KoreanName from "../common/cardKoreanName/KoreanName";
 
-const Image = lazy(() => import("../card/cardimage/Image"));
+const Image = lazy(() => import("../common/cardimage/Image"));
 
 interface Ipokemon {
   props: IPokemonDetail;
