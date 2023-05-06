@@ -7,21 +7,26 @@ const Input = () => {
   const [value, setValue] = useRecoilState(inputState);
   const navigate = useNavigate();
 
-  const onChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) => {
-      setValue(e.target.value);
+  const onSubmit = useCallback(
+    (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      navigate(`/${value}`);
     },
-    [setValue]
+    [value]
   );
 
-  const onSubmit = useCallback((e: FormEvent) => {
-    e.preventDefault();
-    navigate(`/cardlist/${value}`);
-  }, []);
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
 
   return (
-    <form className="flex lg:w-1/6 ml-5 lg:ml-0">
-      <input type="text" onChange={onChange} />
+    <form className="flex lg:w-1/6 ml-5 lg:ml-0" onSubmit={onSubmit}>
+      <input
+        className="border-spacing-1 border-2 rounded-md"
+        type="text"
+        onChange={onChange}
+      />
+      <button className="hidden" type="submit"></button>
     </form>
   );
 };

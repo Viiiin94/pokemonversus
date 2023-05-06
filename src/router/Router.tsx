@@ -10,8 +10,8 @@ const Router = () => {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Main />} />
+          <Route path="/:name" element={<CardInfo />} />
           <Route path="/pokemonlist" element={<CardList />} />
-          <Route path="/pokemonlist/:id" element={<CardInfo />} />
         </Route>
       </Routes>
     </BrowserRouter>
