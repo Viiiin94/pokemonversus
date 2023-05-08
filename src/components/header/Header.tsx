@@ -20,7 +20,7 @@ const Header = () => {
         >
           <span className="ml-3 text-xl">Home</span>
         </a>
-        {/* <Input /> */}
+        <Input />
         <DarkModeButton />
       </div>
     </header>

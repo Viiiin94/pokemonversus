@@ -1,5 +1,4 @@
 import MainImage from "../../assets/pokemon_1200_500.webp";
-import Input from "../common/input/Input";
 
 const MainContainer = () => {
   return (
@@ -59,7 +58,6 @@ const MainContainer = () => {
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
               </a>
-              <Input />
             </div>
           </div>
         </div>

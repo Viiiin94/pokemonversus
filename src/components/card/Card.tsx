@@ -45,7 +45,7 @@ const Card = (props: CardProps) => {
   }
 
   return (
-    <div className="sm:w-1/2 mb-10 px-4 dark:border-b-2 dark:border-b-slate-600">
+    <div className="sm:w-1/2 mb-10 px-4 dark:border-b-2 pb-5 dark:border-b-slate-600">
       <button onClick={onToggleModal}>
         <Image img={pokemonData.image} />
       </button>
