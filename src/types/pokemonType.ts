@@ -14,8 +14,8 @@ export interface IPokemon {
 
   sprites: {
     other: {
-      dream_world: {
-        front_default: string; // 포켓몬 이미지
+      "official-artwork": {
+        front_default: string;
       };
     };
   };

@@ -1,15 +1,10 @@
-import {
-  ChangeEvent,
-  FormEvent,
-  startTransition,
-  useCallback,
-  useEffect,
-} from "react";
+import { ChangeEvent, FormEvent, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { inputState } from "../../../store/inputStore";
 import { useRecoilState } from "recoil";
 
-const Input = () => {
+// StartAndLegendPokemonSearchInput
+const SALSearchInput = () => {
   const [value, setValue] = useRecoilState(inputState);
   const navigate = useNavigate();
 
@@ -17,7 +12,7 @@ const Input = () => {
     async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
-      navigate(`/pokemoninfo/${value}`);
+      navigate(`/pokemoninfo/name=${value}`);
     },
     [value, navigate]
   );
@@ -43,4 +38,4 @@ const Input = () => {
   );
 };
 
-export default Input;
+export default SALSearchInput;

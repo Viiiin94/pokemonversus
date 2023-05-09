@@ -10,7 +10,6 @@ import TopScrollButton from "../components/common/button/TopScrollButton";
 
 const CardList = () => {
   const [pokemons, setPokemons] = useRecoilState(pokemonState);
-  const [dataLength, setDataLength] = useState(0);
 
   const { data, fetchNextPage, hasNextPage } = useInfiniteQuery(
     ["pokemonInfinite"],
@@ -33,9 +32,6 @@ const CardList = () => {
         ],
         next: data.pages[data.pages.length - 1].next,
       }));
-      setDataLength(
-        (prev) => prev + data.pages[data.pages.length - 1].results.length
-      );
     }
   }, [data]);
 

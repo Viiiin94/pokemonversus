@@ -42,7 +42,7 @@ export const pokemonDetailAPI = async (
     name: pokemons.name,
     koreanName: koreanName,
     color: specs.color.name,
-    image: pokemons.sprites.other.dream_world.front_default,
+    image: pokemons.sprites.other["official-artwork"].front_default,
     flavor_text_entry: koreanText,
     types: pokemons.types.map((item) => item.type.name),
   };

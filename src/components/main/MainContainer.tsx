@@ -41,7 +41,7 @@ const MainContainer = () => {
                 포켓몬스터와 각종 여러가지 좋아하는거 추가하는 프로젝트
               </p>
               <a
-                className="text-indigo-500 inline-flex items-center"
+                className="text-indigo-800 inline-flex items-center dark:text-indigo-300"
                 href="https://pokemonkorea.co.kr/"
                 target="_blank"
               >
