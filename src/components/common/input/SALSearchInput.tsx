@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useCallback } from "react";
+import { ChangeEvent, FormEvent, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { inputState } from "../../../store/inputStore";
 import { useRecoilState } from "recoil";
@@ -11,12 +11,10 @@ const SALSearchInput = () => {
   const onSubmit = useCallback(
     async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-
       navigate(`/pokemoninfo/name=${value}`);
     },
     [value, navigate]
   );
-
   const onChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       setValue(e.target.value);

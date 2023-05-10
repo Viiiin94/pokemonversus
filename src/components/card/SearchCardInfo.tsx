@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import { IPokemonDetail } from "../../types/pokemonType";
 import { pokemonType } from "../../utils/compatibility";
 

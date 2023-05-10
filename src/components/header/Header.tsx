@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import DarkModeButton from "../common/button/DarkModeButton";
-import Input from "../common/input/SALSearchInput";
+import SALSearchInput from "../common/input/SALSearchInput";
 
 const Header = () => {
   return (
@@ -20,7 +20,7 @@ const Header = () => {
         >
           <span className="ml-3 text-xl">Home</span>
         </a>
-        <Input />
+        <SALSearchInput />
         <DarkModeButton />
       </div>
     </header>

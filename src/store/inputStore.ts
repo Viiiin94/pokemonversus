@@ -26,7 +26,7 @@ export const filterKoreanNameState = selector({
     }
 
     const { id, name, koreanName, flavor_text_entry, color, image, types } =
-      await pokemonDetailAPI(pokemon.enName);
+      await pokemonDetailAPI(pokemon.english_name);
 
     return {
       id,
