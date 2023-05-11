@@ -18,6 +18,7 @@ export const filterKoreanNameState = selector({
 
     const pokemonList = { ...startingPokemon, ...legendPokemon };
     const pokemon = pokemonList[koName];
+    const stringId = pokemon.id.toString();
 
     if (!pokemon) {
       throw new Error(
@@ -26,7 +27,7 @@ export const filterKoreanNameState = selector({
     }
 
     const { id, name, koreanName, flavor_text_entry, color, image, types } =
-      await pokemonDetailAPI(pokemon.english_name);
+      await pokemonDetailAPI(stringId);
 
     return {
       id,
