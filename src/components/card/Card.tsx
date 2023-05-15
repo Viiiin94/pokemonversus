@@ -5,12 +5,11 @@ import { pokemonDetailState } from "../../store/pokemonStore";
 import { useRecoilState } from "recoil";
 import { IPokemonDetail } from "../../types/pokemonType";
 import Skeleton from "../skeleton/Skeleton";
-import KoreanName from "../common/cardKoreanName/KoreanName";
-import PokeTypes from "../common/cardPokeTypes/PokeTypes";
-import Sentence from "../common/cardSentence/Sentence";
+import KoreanName from "../common/koreanName/KoreanName";
+import PokeTypes from "../common/pokemonTypes/PokeTypes";
 import Modal from "../modal/Modal";
 
-const Image = lazy(() => import("../common/cardimage/Image"));
+const Image = lazy(() => import("../common/image/Image"));
 
 interface CardProps {
   name: string;
@@ -51,7 +50,6 @@ const Card = (props: CardProps) => {
       </button>
       <KoreanName numb={pokemonData.id} korean={pokemonData.koreanName} />
       <PokeTypes types={pokemonData.types} />
-      <Sentence sentence={pokemonData.flavor_text_entry} />
       {openModal && <Modal props={pokemonData} onToggleModal={onToggleModal} />}
     </div>
   );

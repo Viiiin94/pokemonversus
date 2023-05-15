@@ -4,7 +4,7 @@ import { filterKoreanNameState } from "../store/inputStore";
 import InfoSkeleton from "../components/skeleton/InfoSkeleton";
 import SearchCardInfo from "../components/card/SearchCardInfo";
 
-const Image = lazy(() => import("../components/common/cardimage/Image"));
+const Image = lazy(() => import("../components/common/image/Image"));
 
 const CardInfo = () => {
   let pokemon = null;

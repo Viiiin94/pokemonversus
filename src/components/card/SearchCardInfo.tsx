@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { IPokemonDetail } from "../../types/pokemonType";
-import { pokemonType } from "../../utils/compatibility";
+import { pokemonType } from "../../utils/pokemonTypeName";
 
 interface ISerachCardInfo {
   pokemon: IPokemonDetail;

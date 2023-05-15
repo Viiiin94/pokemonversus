@@ -1,4 +1,5 @@
-import { pokemonCompatibility, pokemonType } from "../../utils/compatibility";
+import { pokemonType } from "../../utils/pokemonTypeName";
+import { pokemonCompatibility } from "../../utils/compatibility";
 
 interface ICompatibility {
   types?: string[];

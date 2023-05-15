@@ -1,5 +1,5 @@
 import React from "react";
-import { pokemonType } from "../../../utils/compatibility";
+import { pokemonType } from "../../../utils/pokemonTypeName";
 
 interface IType {
   type: string;
