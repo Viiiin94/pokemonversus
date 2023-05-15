@@ -42,8 +42,11 @@ export const pokemonDetailAPI = async (
     name: pokemons.name,
     koreanName: koreanName,
     color: specs.color.name,
+    game_image: pokemons.sprites.front_default,
     image: pokemons.sprites.other["official-artwork"].front_default,
     flavor_text_entry: koreanText,
     types: pokemons.types.map((item) => item.type.name),
+    stat_name: pokemons.stats.map((item) => item.stat.name),
+    stat_value: pokemons.stats.map((item) => item.base_stat),
   };
 };

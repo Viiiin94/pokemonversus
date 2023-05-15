@@ -31,7 +31,7 @@ const SearchCardInfo = ({ pokemon }: ISerachCardInfo) => {
             <span className="text-gray-500 dark:text-slate-200">Types</span>
             <span className="ml-auto text-gray-900 dark:text-slate-300">
               {pokemon?.types.map((item, idx: number) => {
-                return <Fragment key={idx}>{pokemonType[item]} </Fragment>;
+                return <Fragment key={idx}>{pokemonType[item].name} </Fragment>;
               })}
             </span>
           </div>

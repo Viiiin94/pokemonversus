@@ -21,8 +21,11 @@ export const pokemonDetailState = atom<IPokemonDetail>({
     name: "",
     koreanName: "",
     color: "",
+    game_image: "",
     image: "",
     flavor_text_entry: "",
     types: [],
+    stat_name: [],
+    stat_value: [],
   },
 });

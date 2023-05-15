@@ -26,8 +26,18 @@ export const filterKoreanNameState = selector({
       );
     }
 
-    const { id, name, koreanName, flavor_text_entry, color, image, types } =
-      await pokemonDetailAPI(stringPokemonId);
+    const {
+      id,
+      name,
+      koreanName,
+      flavor_text_entry,
+      color,
+      game_image,
+      image,
+      types,
+      stat_name,
+      stat_value,
+    } = await pokemonDetailAPI(stringPokemonId);
 
     return {
       id,
@@ -35,8 +45,11 @@ export const filterKoreanNameState = selector({
       koreanName,
       flavor_text_entry,
       color,
+      game_image,
       image,
       types,
+      stat_name,
+      stat_value,
     };
   },
 });

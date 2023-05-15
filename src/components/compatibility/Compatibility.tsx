@@ -1,4 +1,3 @@
-import React, { Fragment } from "react";
 import { pokemonCompatibility, pokemonType } from "../../utils/compatibility";
 
 interface ICompatibility {

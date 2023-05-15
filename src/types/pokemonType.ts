@@ -13,12 +13,14 @@ export interface IPokemon {
   };
 
   sprites: {
+    front_default: string;
     other: {
       "official-artwork": {
         front_default: string;
       };
     };
   };
+  stats: { base_stat: number; stat: { name: string } }[];
 }
 export interface IPokemonSpec {
   id: number; // 넘버
@@ -54,9 +56,12 @@ export interface IPokemonDetail {
   name: string;
   koreanName: string;
   color: string;
+  game_image: string;
   image: string;
   flavor_text_entry: string;
   types: string[];
+  stat_name: string[];
+  stat_value: number[];
   [key: string]: any;
 }
 [];
