@@ -1,6 +1,6 @@
 const Skeleton = () => {
   return (
-    <div className="sm:w-1/2 mb-10 px-4">
+    <div className="sm:w-1/2 lg:w-1/4 mb-10 px-4">
       <div className="rounded-lg h-64 overflow-hidden">
         <img
           alt="content"

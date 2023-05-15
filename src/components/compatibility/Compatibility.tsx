@@ -8,19 +8,19 @@ interface ICompatibility {
 const Compatibility = ({ types }: ICompatibility) => {
   const goodEffect = types?.map((type) =>
     pokemonCompatibility[type].goodEffect.map((item, idx: number) => (
-      <span key={idx}>{pokemonType[item]} </span>
+      <span key={idx}>{pokemonType[item].name} </span>
     ))
   );
 
   const badEffect = types?.map((type) =>
     pokemonCompatibility[type].badEffect.map((item, idx: number) => (
-      <span key={idx}>{pokemonType[item]} </span>
+      <span key={idx}>{pokemonType[item].name} </span>
     ))
   );
 
   const nonEffect = types?.map((type) =>
     pokemonCompatibility[type].nonEffect.map((item, idx: number) => (
-      <span key={idx}>{pokemonType[item]} </span>
+      <span key={idx}>{pokemonType[item].name} </span>
     ))
   );
 

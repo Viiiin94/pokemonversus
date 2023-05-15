@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import DarkModeButton from "../common/button/DarkModeButton";
 import SALSearchInput from "../common/input/SALSearchInput";
+import FilteredPokemonType from "./FilteredPokemonType";
 
 const Header = () => {
   return (
-    <header className="text-gray-600 body-font border-b-2 dark:bg-gray-800 dark:border-b-gray-600">
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center dark:text-gray-300">
+    <header className="text-gray-600 body-font dark:bg-gray-800 ">
+      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center dark:text-gray-300 border-b-2 dark:border-b-gray-600">
         <nav className="flex lg:w-1/6 lg:justify-start flex-wrap items-center text-base lg:mr-auto md:ml-auto sm:my-2 xs:my-2 xs:justify-center">
           <Link
             to="/pokemonlist"
@@ -23,6 +24,8 @@ const Header = () => {
         <SALSearchInput />
         <DarkModeButton />
       </div>
+
+      <FilteredPokemonType />
     </header>
   );
 };

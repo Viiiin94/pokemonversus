@@ -9,7 +9,7 @@ const PokeTypes = ({ types }: IPokeTypes) => {
   return (
     <p className="leading-relaxed text-base">
       {types?.map((type, idx: number) => (
-        <Fragment key={idx}>{pokemonType[type] ?? type} </Fragment>
+        <Fragment key={idx}>{pokemonType[type].name ?? type} </Fragment>
       ))}
     </p>
   );

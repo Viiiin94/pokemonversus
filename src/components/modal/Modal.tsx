@@ -15,7 +15,9 @@ const Modal = ({ props, onToggleModal }: Ipokemon) => {
   return (
     <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-70 text-center">
       <div className="text-gray-800 fixed w-[500px] h-[700px] border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-y-hidden bg-slate-50">
-        <Image img={props.image} />
+        <div className=" w-9/12 h-9/12 mx-auto">
+          <Image img={props.image} />
+        </div>
         <KoreanName numb={props.id} korean={props.koreanName} />
         <span className="flex justify-center items-center">
           해당 포켓몬의 타입:

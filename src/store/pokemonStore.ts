@@ -17,7 +17,7 @@ export const pokemonState = atom<IAllPokes>({
 export const pokemonDetailState = atom<IPokemonDetail>({
   key: "pokemonDetail",
   default: {
-    id: 0,
+    id: 1,
     name: "",
     koreanName: "",
     color: "",
