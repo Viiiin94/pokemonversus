@@ -6,7 +6,7 @@ import { useRecoilState } from "recoil";
 import { IPokemonDetail } from "../../types/pokemonType";
 import Skeleton from "../skeleton/Skeleton";
 import KoreanName from "../common/koreanName/KoreanName";
-import PokeTypes from "../common/pokemonTypes/PokeTypes";
+import PokeTypes from "../common/types/PokeTypes";
 import Modal from "../modal/Modal";
 
 const Image = lazy(() => import("../common/image/Image"));
@@ -44,11 +44,12 @@ const Card = (props: CardProps) => {
   }
 
   return (
-    <div className="lg:w-1/4 mb-10 px-4 dark:border-b-2 pb-5 xs:w-1/2 xs:px-1 dark:border-b-slate-600">
+    <div className="lg:w-1/4 mb-10 px-4 dark:border-b-2 pb-3 xs:w-1/2 xs:px-1 dark:border-b-slate-600">
       <button onClick={onToggleModal}>
         <Image img={pokemonData.image} />
       </button>
-      <KoreanName numb={pokemonData.id} korean={pokemonData.koreanName} />
+      <p className="flex flex-1 pl-4">No. {pokemonData.id}</p>
+      <KoreanName korean={pokemonData.koreanName} />
       <PokeTypes types={pokemonData.types} />
       {openModal && <Modal props={pokemonData} onToggleModal={onToggleModal} />}
     </div>

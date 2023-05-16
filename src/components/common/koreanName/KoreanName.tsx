@@ -1,14 +1,13 @@
 import React from "react";
 
 interface IKoreanName {
-  numb?: number;
   korean?: string;
 }
 
-const KoreanName = ({ numb, korean }: IKoreanName) => {
+const KoreanName = ({ korean }: IKoreanName) => {
   return (
-    <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-3 dark:text-slate-100">
-      {numb}. {korean}
+    <h2 className="title-font text-2xl font-medium text-gray-900 mt-1 mb-3 dark:text-slate-100">
+      {korean}
     </h2>
   );
 };
