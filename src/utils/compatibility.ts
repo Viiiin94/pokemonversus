@@ -1,10 +1,10 @@
 import { pokemonType } from "./pokemonTypeName";
 
 type CompatibilityType = {
-  [key in keyof typeof pokemonType]: {
-    goodEffect: Array<keyof typeof pokemonType>;
-    badEffect: Array<keyof typeof pokemonType>;
-    nonEffect: Array<keyof typeof pokemonType>;
+  [type: string]: {
+    goodEffect: string[];
+    badEffect: string[];
+    nonEffect: string[];
   };
 };
 
