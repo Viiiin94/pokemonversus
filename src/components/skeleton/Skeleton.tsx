@@ -1,7 +1,7 @@
 const Skeleton = () => {
   return (
     <div className="mb-10 px-4 mx-1.5 border border-gray-400 pb-3 xs:w-full xs:px-1 dark:border-b dark:border-b-slate-600">
-      <div className="rounded-lg h-64 overflow-hidden">
+      <div className="rounded-lg h-64 overflow-hidden flex justify-center items-center">
         <div
           role="status"
           className="flex items-center justify-center mx-auto my-auto"
@@ -25,11 +25,11 @@ const Skeleton = () => {
           <span className="sr-only">Loading...</span>
         </div>
       </div>
+      <p className="leading-relaxed text-base">포켓몬 번호</p>
       <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">
         포켓몬 이름
       </h2>
       <p className="leading-relaxed text-base">포켓몬 타입</p>
-      <p className="leading-relaxed text-base">포켓몬 특징</p>
     </div>
   );
 };
