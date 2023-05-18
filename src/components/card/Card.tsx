@@ -2,12 +2,13 @@ import React, { lazy, useState } from "react";
 import { useQuery } from "react-query";
 import { pokemonDetailAPI } from "../../apis/api";
 import { pokemonDetailState } from "../../store/pokemonStore";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { IPokemonDetail } from "../../types/pokemonType";
 import Skeleton from "../skeleton/Skeleton";
 import KoreanName from "../common/koreanName/KoreanName";
 import PokeTypes from "../common/types/PokeTypes";
 import Modal from "../modal/Modal";
+import { selectedState } from "../../store/selectedStore";
 
 const Image = lazy(() => import("../common/image/Image"));
 
@@ -18,6 +19,7 @@ interface CardProps {
 const Card = (props: CardProps) => {
   const [openModal, setOpenModal] = useState(false);
   const [pokemon, setPokemon] = useRecoilState(pokemonDetailState);
+  const selectedType = useRecoilValue(selectedState);
 
   useQuery(["pokemonDetail", props.name], () => pokemonDetailAPI(props.name), {
     onSuccess: (data) => {
@@ -39,8 +41,11 @@ const Card = (props: CardProps) => {
     setOpenModal((prev) => !prev);
   };
 
-  if (!pokemonData && pokemon) {
-    return <Skeleton />;
+  if (
+    !pokemonData ||
+    (selectedType && !pokemonData.types.includes(selectedType))
+  ) {
+    return null; // 필터링 조건에 맞지 않는 경우 카드를 렌더링하지 않음
   }
 
   return (

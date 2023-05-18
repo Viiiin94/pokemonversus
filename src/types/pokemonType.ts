@@ -48,6 +48,7 @@ export interface IAllPokes {
   next: string;
   results: {
     name: string;
+    url: string;
   }[];
 }
 

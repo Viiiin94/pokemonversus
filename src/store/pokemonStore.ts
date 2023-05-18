@@ -9,6 +9,7 @@ export const pokemonState = atom<IAllPokes>({
     results: [
       {
         name: "",
+        url: "",
       },
     ],
   },

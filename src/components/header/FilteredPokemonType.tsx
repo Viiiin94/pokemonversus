@@ -10,8 +10,6 @@ const FilteredPokemonType = () => {
     setSelectedType(e.target.value);
   };
 
-  console.log(selectedType);
-
   return (
     <div className="container mx-auto mt-2 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-6 lg:grid-cols-9 gap-3">
       {pokemonTypes.map((item) => (
