@@ -25,6 +25,27 @@ type PokemonType = {
   };
 };
 
+export const pokemonTypes: string[] = [
+  "normal",
+  "fire",
+  "water",
+  "electric",
+  "grass",
+  "ice",
+  "fighting",
+  "poison",
+  "ground",
+  "flying",
+  "psychic",
+  "bug",
+  "dark",
+  "rock",
+  "ghost",
+  "dragon",
+  "steel",
+  "fairy",
+];
+
 export const pokemonType: PokemonType = {
   normal: {
     name: "노말",

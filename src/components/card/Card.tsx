@@ -44,13 +44,13 @@ const Card = (props: CardProps) => {
   }
 
   return (
-    <div className="lg:w-1/4 mb-10 px-4 dark:border-b-2 pb-3 xs:w-1/2 xs:px-1 dark:border-b-slate-600">
+    <div className="mb-10 px-4 mx-1.5 border border-gray-400 pb-3 xs:w-full xs:px-1 dark:border-b dark:border-b-slate-600">
       <button onClick={onToggleModal}>
         <Image img={pokemonData.image} />
+        <p className="flex flex-1 pl-4">No. {pokemonData.id}</p>
+        <KoreanName korean={pokemonData.koreanName} />
+        <PokeTypes types={pokemonData.types} />
       </button>
-      <p className="flex flex-1 pl-4">No. {pokemonData.id}</p>
-      <KoreanName korean={pokemonData.koreanName} />
-      <PokeTypes types={pokemonData.types} />
       {openModal && <Modal props={pokemonData} onToggleModal={onToggleModal} />}
     </div>
   );

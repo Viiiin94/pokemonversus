@@ -53,7 +53,7 @@ const CardList = () => {
         scrollThreshold={0.99}
       >
         <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-wrap -mx-4 -mb-10 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             {pokemons
               ? pokemons?.results.map((item, idx: number) => {
                   return (

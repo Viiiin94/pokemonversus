@@ -28,7 +28,7 @@ const GoodEffect = ({ types }: INoDamageTypes) => {
         scope="row"
         className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white border-r-[1px]"
       >
-        효과는 뛰어났다!
+        효과는 없는 듯 하다...
       </th>
       {nonEffect}
     </tr>
