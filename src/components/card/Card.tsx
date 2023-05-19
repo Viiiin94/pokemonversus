@@ -2,13 +2,12 @@ import React, { lazy, useState } from "react";
 import { useQuery } from "react-query";
 import { pokemonDetailAPI } from "../../apis/api";
 import { pokemonDetailState } from "../../store/pokemonStore";
+import { selectedState } from "../../store/selectedStore";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { IPokemonDetail } from "../../types/pokemonType";
-import Skeleton from "../skeleton/Skeleton";
 import KoreanName from "../common/koreanName/KoreanName";
 import PokeTypes from "../common/types/PokeTypes";
 import Modal from "../modal/Modal";
-import { selectedState } from "../../store/selectedStore";
 
 const Image = lazy(() => import("../common/image/Image"));
 
@@ -41,10 +40,11 @@ const Card = (props: CardProps) => {
     setOpenModal((prev) => !prev);
   };
 
-  if (
-    !pokemonData ||
-    (selectedType && !pokemonData.types.includes(selectedType))
-  ) {
+  if (!pokemonData || !pokemonData.id) {
+    return null; // 초기 상태 또는 API 응답 데이터가 없는 경우 카드를 렌더링하지 않음
+  }
+
+  if (selectedType && !pokemonData.types.includes(selectedType)) {
     return null; // 필터링 조건에 맞지 않는 경우 카드를 렌더링하지 않음
   }
 

@@ -66,3 +66,7 @@ export interface IPokemonDetail {
   [key: string]: any;
 }
 [];
+
+export type a = {
+  [key: string]: [IPokemonDetail];
+};

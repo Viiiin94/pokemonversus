@@ -11,7 +11,7 @@ const FilteredPokemonType = () => {
   };
 
   return (
-    <div className="container mx-auto mt-2 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-6 lg:grid-cols-9 gap-3">
+    <div className="container mx-auto mt-2 grid grid-cols-1 xs:grid-cols-3 sm:grid-cols-6 lg:grid-cols-9 gap-3">
       {pokemonTypes.map((item) => (
         <label
           key={item}
@@ -27,7 +27,7 @@ const FilteredPokemonType = () => {
           />
           <span className="flex-1">{pokemonType[item]?.name}</span>
           <img
-            className="w-6 h-6 ml-1"
+            className="w-6 h-6 ml-1 "
             src={pokemonType[item]?.icon}
             alt={pokemonType[item]?.name}
           />
