@@ -5,6 +5,7 @@ import { pokemonDetailState } from "../../store/pokemonStore";
 import { selectedState } from "../../store/selectedStore";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { IPokemonDetail } from "../../types/pokemonType";
+import { pokemonType } from "../../utils/pokemonTypeName";
 import KoreanName from "../common/koreanName/KoreanName";
 import PokeTypes from "../common/types/PokeTypes";
 import Modal from "../modal/Modal";
@@ -35,6 +36,7 @@ const Card = (props: CardProps) => {
   });
 
   const pokemonData: IPokemonDetail = pokemon[props.name];
+  const pokemonColor = pokemonData.types[0];
 
   const onToggleModal = () => {
     setOpenModal((prev) => !prev);
