@@ -7,51 +7,49 @@ import { inputState } from "../../../store/inputStore";
 
 // StartAndLegendPokemonSearchInput
 const SALSearchInput = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FieldValues>({
-    defaultValues: {
-      name: "",
-    },
-  });
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors },
+  // } = useForm<FieldValues>({
+  //   defaultValues: {
+  //     name: "",
+  //   },
+  // });
 
   const [value, setValue] = useRecoilState(inputState);
   const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    setValue(data.name);
-    navigate(`/pokemoninfo/name=${data.name}`);
-  };
+  // const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  //   setValue(data.name);
+  //   navigate(`/pokemoninfo/name=${data.name}`);
+  // };
 
-  // const onSubmit = useCallback(
-  //   async (e: FormEvent<HTMLFormElement>) => {
-  //     e.preventDefault();
+  const onSubmit = useCallback(
+    async (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-  //     navigate(`/pokemoninfo/name=${value}`);
-  //   },
-  //   [value, navigate]
-  // );
+      navigate(`/pokemoninfo/name=${value}`);
+    },
+    [value, navigate]
+  );
 
-  // const onChange = useCallback(
-  //   (e: ChangeEvent<HTMLInputElement>) => {
-  //     setValue(e.target.value);
-  //   },
-  //   [value, navigate]
-  // );
+  const onChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      setValue(e.target.value);
+    },
+    [value, navigate]
+  );
 
   return (
-    <form
-      className="flex lg:w-1/6 ml-5 lg:ml-0"
-      onSubmit={handleSubmit(onSubmit)}
-    >
+    <form className="flex lg:w-1/6 ml-5 lg:ml-0" onSubmit={onSubmit}>
       <input
         className="border-spacing-1 border-2 rounded-md dark:text-black"
         type="text"
+        // {...register("name")}
         placeholder="스타팅 & 전설의 포켓몬"
         value={value}
-        {...register("name")}
+        onChange={onChange}
       />
       <button className="hidden" type="submit"></button>
     </form>

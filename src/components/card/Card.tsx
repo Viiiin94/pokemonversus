@@ -36,7 +36,7 @@ const Card = (props: CardProps) => {
   });
 
   const pokemonData: IPokemonDetail = pokemon[props.name];
-  const pokemonColor = pokemonData.types[0];
+  // const pokemonColor = pokemonData.types[0];
 
   const onToggleModal = () => {
     setOpenModal((prev) => !prev);
@@ -51,7 +51,7 @@ const Card = (props: CardProps) => {
   }
 
   return (
-    <div className="mb-10 px-4 mx-1.5 border border-gray-400 pb-3 xs:w-full xs:px-1 dark:border-b dark:border-b-slate-600">
+    <div className="mb-10 px-4 mx-1.5 border border-gray-400 pb-3 xs:w-full xs:px-1 dark:border-b dark:border-b-slate-600 transition">
       <button onClick={onToggleModal}>
         <Image img={pokemonData.image} />
         <p className="flex flex-1 pl-4">No. {pokemonData.id}</p>
