@@ -44,7 +44,7 @@ const SALSearchInput = () => {
   return (
     <form className="flex lg:w-1/6 ml-5 lg:ml-0" onSubmit={onSubmit}>
       <input
-        className="border-spacing-1 border-2 rounded-md dark:text-black"
+        className="border-spacing-1 border-2 rounded-md dark:text-black pl-1"
         type="text"
         // {...register("name")}
         placeholder="스타팅 & 전설의 포켓몬"

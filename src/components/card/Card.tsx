@@ -5,7 +5,6 @@ import { pokemonDetailState } from "../../store/pokemonStore";
 import { selectedState } from "../../store/selectedStore";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { IPokemonDetail } from "../../types/pokemonType";
-import { pokemonType } from "../../utils/pokemonTypeName";
 import KoreanName from "../common/koreanName/KoreanName";
 import PokeTypes from "../common/types/PokeTypes";
 import Modal from "../modal/Modal";
@@ -16,17 +15,17 @@ interface CardProps {
   name: string;
 }
 
-const Card = (props: CardProps) => {
+const Card = ({ name }: CardProps) => {
   const [openModal, setOpenModal] = useState(false);
   const [pokemon, setPokemon] = useRecoilState(pokemonDetailState);
   const selectedType = useRecoilValue(selectedState);
 
-  useQuery(["pokemonDetail", props.name], () => pokemonDetailAPI(props.name), {
+  useQuery(["pokemonDetail", name], () => pokemonDetailAPI(name), {
     onSuccess: (data) => {
       if (!!data) {
         setPokemon((prevPokemon) => ({
           ...prevPokemon,
-          [props.name]: data ? data : undefined,
+          [name]: data ? data : undefined,
         }));
       }
     },
@@ -35,7 +34,7 @@ const Card = (props: CardProps) => {
     },
   });
 
-  const pokemonData: IPokemonDetail = pokemon[props.name];
+  const pokemonData: IPokemonDetail = pokemon[name];
   // const pokemonColor = pokemonData.types[0];
 
   const onToggleModal = () => {
@@ -51,7 +50,7 @@ const Card = (props: CardProps) => {
   }
 
   return (
-    <div className="mb-10 px-4 mx-1.5 border border-gray-400 pb-3 xs:w-full xs:px-1 dark:border-b dark:border-b-slate-600 transition">
+    <div className="mb-10 px-4 mx-1.5 pb-3 border border-gray-300 dark:border-gray-100 xs:w-full xs:px-1 transition">
       <button onClick={onToggleModal}>
         <Image img={pokemonData.image} />
         <p className="flex flex-1 pl-4">No. {pokemonData.id}</p>

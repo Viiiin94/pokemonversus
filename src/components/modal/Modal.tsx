@@ -12,23 +12,22 @@ interface Ipokemon {
 }
 
 const Modal = ({ props, onToggleModal }: Ipokemon) => {
-  console.log(props);
   return (
-    <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-70 text-center ">
-      <div className="text-gray-800 fixed border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-50 dark:bg-slate-500">
+    <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-70 text-center">
+      <div className="fixed border rounded-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-50">
         <div className="flex flex-row">
           <GameImage img={props.game_image} />
 
           <div className="relative overflow-x-auto">
-            <table className="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <table className="w-full h-full text-sm text-left text-gray-500">
               <tbody className="text-center">
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <tr className="bg-white border-b">
                   <th className="px-1 py-4 items-center mx-auto border-r">
                     번호
                   </th>
                   <td className="px-1 py-4 items-center mx-auto">{props.id}</td>
                 </tr>
-                <tr className="bg-gray-100 border-b dark:bg-gray-800 dark:border-gray-700">
+                <tr className="bg-gray-100 border-b">
                   <th className="px-1 py-4 items-center mx-auto border-r">
                     이름
                   </th>
@@ -36,7 +35,7 @@ const Modal = ({ props, onToggleModal }: Ipokemon) => {
                     {props.koreanName}
                   </td>
                 </tr>
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <tr className="bg-white border-b">
                   <th className="px-1 py-4 items-center mx-auto border-r">
                     타입
                   </th>

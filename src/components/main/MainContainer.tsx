@@ -1,4 +1,8 @@
 import MainImage from "../../assets/pokemon_1200_500.webp";
+import ReactQuery from "../../assets/react-query.svg";
+import React from "../../assets/react.svg";
+import TypeScript from "../../assets/typescript.svg";
+import TailwindCSS from "../../assets/tailwindcss.svg";
 
 const MainContainer = () => {
   return (
@@ -36,10 +40,36 @@ const MainContainer = () => {
                 <p className="text-base">포켓몬스터</p>
               </div>
             </div>
-            <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-              <p className="leading-relaxed text-lg mb-4">
-                포켓몬스터와 각종 여러가지 좋아하는거 추가하는 프로젝트
-              </p>
+            <div className="flex flex-col sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l sm:mt-0 sm:text-left">
+              <div className="flex flex-row">
+                <img
+                  src={React}
+                  alt="reactquery-icons"
+                  className="w-10 h-10 object-center mx-1"
+                />
+                <img
+                  src={TypeScript}
+                  alt="reactquery-icons"
+                  className="w-10 h-10 object-center mx-1"
+                />
+                <img
+                  src={TailwindCSS}
+                  alt="reactquery-icons"
+                  className="w-10 h-10 object-center mx-1"
+                />
+                <img
+                  src={ReactQuery}
+                  alt="reactquery-icons"
+                  className="w-10 h-10 object-center mx-1"
+                />
+              </div>
+              <div className="mt-4">
+                <p className="text-base">
+                  포켓몬스터 useInfiniteQuery와 Recoil을 이용한 인피니티스크롤
+                  카드리스트
+                  <br />
+                </p>
+              </div>
             </div>
           </div>
         </div>
