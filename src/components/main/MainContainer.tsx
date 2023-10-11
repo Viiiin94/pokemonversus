@@ -3,6 +3,9 @@ import ReactQuery from "../../assets/react-query.svg";
 import React from "../../assets/react.svg";
 import TypeScript from "../../assets/typescript.svg";
 import TailwindCSS from "../../assets/tailwindcss.svg";
+import Vite from "../../assets/vite.svg";
+import HTML5 from "../../assets/html5.svg";
+import Recoil from "../../assets/recoil.svg";
 
 const MainContainer = () => {
   return (
@@ -41,25 +44,40 @@ const MainContainer = () => {
               </div>
             </div>
             <div className="flex flex-col sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l sm:mt-0 sm:text-left">
-              <div className="flex flex-row">
+              <div className="flex flex-row gap-2">
                 <img
-                  src={React}
-                  alt="reactquery-icons"
-                  className="w-10 h-10 object-center mx-1"
-                />
-                <img
-                  src={TypeScript}
-                  alt="reactquery-icons"
+                  src={HTML5}
+                  alt="HTML5-icons"
                   className="w-10 h-10 object-center mx-1"
                 />
                 <img
                   src={TailwindCSS}
-                  alt="reactquery-icons"
+                  alt="tailwind-icons"
+                  className="w-10 h-10 object-center mx-1"
+                />
+                <img
+                  src={TypeScript}
+                  alt="typescript-icons"
+                  className="w-10 h-10 object-center mx-1"
+                />
+                <img
+                  src={React}
+                  alt="react-icons"
+                  className="w-10 h-10 object-center mx-1"
+                />
+                <img
+                  src={Recoil}
+                  alt="recoil-icons"
                   className="w-10 h-10 object-center mx-1"
                 />
                 <img
                   src={ReactQuery}
                   alt="reactquery-icons"
+                  className="w-10 h-10 object-center mx-1"
+                />
+                <img
+                  src={Vite}
+                  alt="vite-icons"
                   className="w-10 h-10 object-center mx-1"
                 />
               </div>
