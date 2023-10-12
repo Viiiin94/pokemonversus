@@ -1,5 +1,6 @@
 import { Suspense, lazy } from "react";
 import { useRecoilValue } from "recoil";
+
 import { filterKoreanNameState } from "../store/inputStore";
 import InfoSkeleton from "../components/skeleton/InfoSkeleton";
 import SearchCardInfo from "../components/card/SearchCardInfo";

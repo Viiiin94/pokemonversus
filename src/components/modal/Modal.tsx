@@ -1,4 +1,5 @@
 import { lazy } from "react";
+
 import { IPokemonDetail } from "../../types/pokemonType";
 import Compatibility from "../compatibility/Compatibility";
 import PokeTypes from "../common/types/PokeTypes";

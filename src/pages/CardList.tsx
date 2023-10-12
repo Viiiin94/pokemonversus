@@ -1,8 +1,9 @@
 import { Suspense, useEffect } from "react";
 import { useInfiniteQuery } from "react-query";
+import { useRecoilState } from "recoil";
+
 import { pokemonAPI } from "../apis/api";
 import { pokemonState } from "../store/pokemonStore";
-import { useRecoilState } from "recoil";
 import Card from "../components/card/Card";
 import Skeleton from "../components/skeleton/Skeleton";
 import InfiniteScroll from "react-infinite-scroll-component";

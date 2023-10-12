@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { pokemonType } from "../../../utils/pokemonTypeName";
 
 interface IPokeTypes {

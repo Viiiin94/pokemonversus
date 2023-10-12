@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import { ChangeEvent } from "react";
 import { pokemonType, pokemonTypes } from "../../utils/pokemonTypeName";
 import { useRecoilState } from "recoil";
 import { selectedState } from "../../store/selectedStore";

@@ -1,5 +1,3 @@
-import { Suspense } from "react";
-
 const InfoSkeleton = () => {
   return (
     <section className="text-gray-600 body-font dark:bg-gray-700 dark:text-slate-300 h-screen">

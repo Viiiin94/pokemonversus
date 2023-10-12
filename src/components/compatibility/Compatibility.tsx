@@ -1,5 +1,3 @@
-import { pokemonType } from "../../utils/pokemonTypeName";
-import { pokemonCompatibility } from "../../utils/compatibility";
 import GoodEffect from "./GoodEffect";
 import BadEffect from "./BadEffect";
 import NonEffect from "./NonEffect";

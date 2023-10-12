@@ -1,6 +1,7 @@
 import { useSetRecoilState } from "recoil";
-import { pokemonState } from "../store/pokemonStore";
 import { useQuery } from "react-query";
+
+import { pokemonState } from "../store/pokemonStore";
 import { pokemonAPI } from "../apis/api";
 import MainContainer from "../components/main/MainContainer";
 

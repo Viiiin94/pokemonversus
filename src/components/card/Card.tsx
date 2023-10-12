@@ -1,9 +1,10 @@
 import React, { lazy, useState } from "react";
 import { useQuery } from "react-query";
+import { useRecoilState, useRecoilValue } from "recoil";
+
 import { pokemonDetailAPI } from "../../apis/api";
 import { pokemonDetailState } from "../../store/pokemonStore";
 import { selectedState } from "../../store/selectedStore";
-import { useRecoilState, useRecoilValue } from "recoil";
 import { IPokemonDetail } from "../../types/pokemonType";
 import KoreanName from "../common/koreanName/KoreanName";
 import PokeTypes from "../common/types/PokeTypes";
